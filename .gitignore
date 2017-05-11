@@ -1,0 +1,13 @@
+.gradle
+.project
+.settings/
+.classpath
+target/
+build/
+logs/
+bin
+test-output
+doc
+chromedriver.log
+testng.out.xml
+.DS_Store

@@ -1,0 +1,44 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.8
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Example Java TestNG WebDriver Project',
+                   'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
+	compile group: 'com.paulhammant', name: 'ngwebdriver', version: '1.0'
+	compile 'com.google.guava:guava:19.0'
+    compile 'org.testng:testng:6.11'
+	compile 'org.seleniumhq.selenium:selenium-java:3.3.1'
+	compile 'org.assertj:assertj-core:2.1.0'
+	compile('org.uncommons:reportng:1.1.4') {
+		exclude module: 'testng' //by artifact name
+	}
+	compile 'com.google.inject:guice:2.0-no_aop'
+}
+
+test {
+	testLogging {
+		events "started", "passed", "skipped", "failed", "standardOut", "standardError"
+		exceptionFormat "full" // default is "short"
+	}
+
+	useTestNG {
+		useDefaultListeners = false
+		includeGroups project.hasProperty('testGroups') ? testGroups : ''
+	}
+	options {
+    	listeners << 'org.uncommons.reportng.HTMLReporter'
+    	listeners << 'org.uncommons.reportng.JUnitXMLReporter'
+  	}
+}
