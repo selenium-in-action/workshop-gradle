@@ -36,6 +36,9 @@ test {
 	useTestNG {
 		useDefaultListeners = false
 		includeGroups project.hasProperty('testGroups') ? testGroups : ''
+		include 'answers/**'
+		parallel = 'classes'
+		threadCount = 4
 	}
 	options {
     	listeners << 'org.uncommons.reportng.HTMLReporter'
