@@ -26,8 +26,8 @@ public class Exercise1c extends AbstractTestBase {
 		System.out.println(countdown.getText());
 
 		// Wait till the countdown reached ..
-		new FluentWait<WebElement>(countdown).withTimeout(10, TimeUnit.SECONDS).pollingEvery(250, TimeUnit.MILLISECONDS)
-				.until(new Function<WebElement, Boolean>() {
+		new FluentWait<WebElement>(countdown).withTimeout(25, TimeUnit.SECONDS) //
+				.pollingEvery(250, TimeUnit.MILLISECONDS).until(new Function<WebElement, Boolean>() {
 					@Override
 					public Boolean apply(final WebElement el) {
 						System.out.println(el.getText());

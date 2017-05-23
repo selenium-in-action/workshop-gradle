@@ -3,6 +3,8 @@ gradle/
 .project
 .settings/
 .classpath
+.idea/
+selenium-workshop.iml
 target/
 build/
 logs/

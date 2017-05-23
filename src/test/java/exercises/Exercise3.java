@@ -43,5 +43,7 @@ public class Exercise3 {
 		final ContactPage contactPage = new HomePage(driver).get() //
 				.navigateToContactPage();
 
+		// ...
+
 	}
 }
