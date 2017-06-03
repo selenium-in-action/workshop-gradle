@@ -51,7 +51,7 @@ public class ContactPage extends AbstractPage<ContactPage> {
 
 	@Override
 	protected void load() {
-		driver.get("http://demo.rdekleijn.nl/index.php?controller=contact");
+		driver.get("http://demo.selenium-in-action.io/index.php?controller=contact");
 	}
 
 	public String getPageTitle() {

@@ -11,9 +11,6 @@ public class MyAccountPage extends AbstractPage<MyAccountPage> {
 
 	private Log log = LogFactory.getLog(MyAccountPage.class);
 
-	@FindBy(css = "a.login")
-	private WebElement loginLink;
-
 	@FindBy(css = "div#center_column > p")
 	private WebElement welcomeMessage;
 
