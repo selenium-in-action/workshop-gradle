@@ -9,8 +9,8 @@ import org.testng.annotations.Test;
 
 import exercises.pages.HomePage;
 import exercises.pages.SearchResultsPage;
-import util.File;
-import util.Os;
+import util.DriverPath;
+import util.FileUtil;
 
 /**
  * The goal of this exercise is to refactor this test class. Extracting the setup and teardown.
@@ -24,11 +24,8 @@ public class Exercise2 {
 
 	@BeforeMethod(alwaysRun = true)
 	public void setUp() {
-		// Determine OS
-		final String os = Os.getOs();
-
 		// Create a new instance of the Firefox driver
-		System.setProperty("webdriver.chrome.driver", File.findFileOnPath("drivers/" + os + "/chromedriver")); // geckodriver
+		System.setProperty("webdriver.chrome.driver", FileUtil.findFileOnPath(DriverPath.getChromeDriver())); // geckodriver
 		// System.setProperty("webdriver.gecko.driver", findFileOnPath("drivers/mac/geckodriver")); // geckodriver
 		driver = new ChromeDriver();
 

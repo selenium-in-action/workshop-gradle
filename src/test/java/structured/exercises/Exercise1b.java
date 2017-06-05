@@ -12,8 +12,8 @@ import org.testng.annotations.Test;
 import exercises.pages.HomePage;
 import exercises.pages.MyAccountPage;
 import exercises.types.Title;
-import util.File;
-import util.Os;
+import util.DriverPath;
+import util.FileUtil;
 
 /**
  * The goal of this exercises is to fix the broken test(s).
@@ -26,11 +26,8 @@ public class Exercise1b {
 
 	@BeforeMethod(alwaysRun = true)
 	public void setUp() {
-		// Determine OS
-		final String os = Os.getOs();
-
 		// Create a new instance of the Firefox driver
-		System.setProperty("webdriver.chrome.driver", File.findFileOnPath("drivers/" + os + "/chromedriver")); // geckodriver
+		System.setProperty("webdriver.chrome.driver", FileUtil.findFileOnPath(DriverPath.getChromeDriver())); // geckodriver
 		// System.setProperty("webdriver.gecko.driver", findFileOnPath("drivers/mac/geckodriver")); // geckodriver
 		driver = new ChromeDriver();
 

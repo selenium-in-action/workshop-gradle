@@ -7,8 +7,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import util.File;
-import util.Os;
+import util.DriverPath;
+import util.FileUtil;
 
 /**
  * The goal of this exercise is to replace regular identifiers by angular identifiers
@@ -21,11 +21,8 @@ public class Exercise1d {
 
 	@BeforeMethod(alwaysRun = true)
 	public void setUp() {
-		// Determine OS
-		final String os = Os.getOs();
-
 		// Create a new instance of the Firefox driver
-		System.setProperty("webdriver.chrome.driver", File.findFileOnPath("drivers/" + os + "/chromedriver")); // geckodriver
+		System.setProperty("webdriver.chrome.driver", FileUtil.findFileOnPath(DriverPath.getChromeDriver())); // geckodriver
 		// System.setProperty("webdriver.gecko.driver", findFileOnPath("drivers/mac/geckodriver")); // geckodriver
 		driver = new ChromeDriver();
 

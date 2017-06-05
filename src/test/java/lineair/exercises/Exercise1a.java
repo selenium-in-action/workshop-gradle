@@ -18,6 +18,11 @@ public class Exercise1a extends AbstractTestBase {
 		driver.findElement(By.cssSelector("a.login")).click();
 
 		driver.findElement(By.cssSelector("input#email")).sendKeys("tester@test.com");
+		driver.findElement(By.name("passwd")).sendKeys("1qazxsw2");
+		driver.findElement(By.id("SubmitLogin")).click();
+
+		Assertions.assertThat(driver.findElement(By.cssSelector("p.info-account")).getText())
+				.isEqualTo("Welcome to your account. Here you can manage all of your personal information and orders.");
 	}
 
 	public void loginAccountDoesNotExist() {

@@ -7,7 +7,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import util.File;
+import util.DriverPath;
+import util.FileUtil;
 
 public abstract class AbstractTestBase {
 	// protected WebDriver driver;
@@ -16,8 +17,8 @@ public abstract class AbstractTestBase {
 	@BeforeMethod(alwaysRun = true)
 	public void setUp() throws MalformedURLException {
 		// Create a new instance of the Firefox driver
-		// System.setProperty("webdriver.chrome.driver", File.findFileOnPath(DriverPath.getDriver())); // geckodriver
-		System.setProperty("webdriver.chrome.driver", File.findFileOnPath("drivers/mac/chromedriver")); // geckodriver
+		System.setProperty("webdriver.chrome.driver", FileUtil.findFileOnPath(DriverPath.getChromeDriver())); // geckodriver
+		// System.setProperty("webdriver.chrome.driver", File.findFileOnPath("drivers/mac/chromedriver")); // geckodriver
 		driver = new ChromeDriver();
 
 		// final DesiredCapabilities dr = DesiredCapabilities.chrome();

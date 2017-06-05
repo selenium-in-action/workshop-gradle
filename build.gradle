@@ -36,7 +36,7 @@ test {
 	useTestNG {
 		useDefaultListeners = false
 		includeGroups project.hasProperty('testGroups') ? testGroups : ''
-		include 'answers/**'
+		include 'lineair/answers/**'
 		parallel = 'classes'
 		threadCount = 4
 	}
