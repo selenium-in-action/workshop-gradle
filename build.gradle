@@ -21,6 +21,7 @@ dependencies {
     compile 'org.testng:testng:6.11'
 	compile 'org.seleniumhq.selenium:selenium-java:3.3.1'
 	compile 'org.assertj:assertj-core:2.1.0'
+	compile 'io.github.bonigarcia:webdrivermanager:1.6.2'
 	compile('org.uncommons:reportng:1.1.4') {
 		exclude module: 'testng' //by artifact name
 	}

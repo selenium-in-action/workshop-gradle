@@ -2,8 +2,8 @@ package structured.answers;
 
 import java.net.MalformedURLException;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -11,14 +11,13 @@ import util.DriverPath;
 import util.FileUtil;
 
 public abstract class AbstractTestBase {
-	// protected WebDriver driver;
-	protected RemoteWebDriver driver;
+	protected WebDriver driver;
+	// protected RemoteWebDriver driver;
 
 	@BeforeMethod(alwaysRun = true)
 	public void setUp() throws MalformedURLException {
 		// Create a new instance of the Firefox driver
 		System.setProperty("webdriver.chrome.driver", FileUtil.findFileOnPath(DriverPath.getChromeDriver())); // geckodriver
-		// System.setProperty("webdriver.chrome.driver", File.findFileOnPath("drivers/mac/chromedriver")); // geckodriver
 		driver = new ChromeDriver();
 
 		// final DesiredCapabilities dr = DesiredCapabilities.chrome();
