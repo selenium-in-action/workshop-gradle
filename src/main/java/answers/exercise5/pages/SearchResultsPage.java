@@ -1,8 +1,6 @@
 package answers.exercise5.pages;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
+import answers.types.SearchResult;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.By;
@@ -11,7 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-import answers.types.SearchResult;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class SearchResultsPage extends AbstractPage<SearchResultsPage> {
 

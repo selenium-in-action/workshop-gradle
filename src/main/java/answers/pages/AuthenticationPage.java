@@ -35,7 +35,7 @@ public class AuthenticationPage extends AbstractPage<AuthenticationPage> {
 	@Override
 	protected void load() {
 		// Open the page
-		driver.get("http://demo.selenium-in-action.io/index.php?controller=authentication");
+		driver.get("http://demo.seleniuminaction.com/index.php?controller=authentication");
 	}
 
 	@Override

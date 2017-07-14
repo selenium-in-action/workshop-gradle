@@ -8,16 +8,16 @@ import org.testng.annotations.Test;
 public class FormWithDisabledButton extends AbstractTestBase {
 
 	public void submitForm() {
-		driver.get("http://selenium-in-action.io/examples/FormWithDisabledButton.html");
+		getDriver().get("http://seleniuminaction.com/examples/FormWithDisabledButton.html");
 
-		Assertions.assertThat(driver.findElement(By.cssSelector("button[type=submit]")).isEnabled()).isEqualTo(false);
+		Assertions.assertThat(getDriver().findElement(By.cssSelector("button[type=submit]")).isEnabled()).isEqualTo(false);
 
-		driver.findElement(By.cssSelector("input#username")).sendKeys("John");
-		driver.findElement(By.cssSelector("input#password")).sendKeys("pass");
+		getDriver().findElement(By.cssSelector("input#username")).sendKeys("John");
+		getDriver().findElement(By.cssSelector("input#password")).sendKeys("pass");
 
-		driver.findElement(By.cssSelector("body")).click();
+		getDriver().findElement(By.cssSelector("body")).click();
 
-		Assertions.assertThat(driver.findElement(By.cssSelector("button[type=submit]")).isEnabled()).isEqualTo(true);
+		Assertions.assertThat(getDriver().findElement(By.cssSelector("button[type=submit]")).isEnabled()).isEqualTo(true);
 	}
 
 }

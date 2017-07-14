@@ -1,12 +1,12 @@
 package structured.answers;
 
-import java.util.concurrent.TimeUnit;
-
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
 
 @Test
 public class DelayedForm extends AbstractTestBase {
@@ -14,34 +14,34 @@ public class DelayedForm extends AbstractTestBase {
 	/**
 	 * Doesn't work
 	 */
-	@Test(invocationCount = 10)
+	@Test(invocationCount = 3)
 	public void waitForSuccessMessage() {
-		driver.get("http://www.selenium-in-action.io/examples/FormWithDelay.html");
+		getDriver().get("http://www.seleniuminaction.com/examples/FormWithDelay.html");
 
-		driver.findElement(By.cssSelector("input#firstName")).sendKeys("John");
-		driver.findElement(By.cssSelector("input#lastName")).sendKeys("Doe");
-		driver.findElement(By.cssSelector("input#email")).sendKeys("foo@bar.com");
+		getDriver().findElement(By.cssSelector("input#firstName")).sendKeys("John");
+		getDriver().findElement(By.cssSelector("input#lastName")).sendKeys("Doe");
+		getDriver().findElement(By.cssSelector("input#email")).sendKeys("foo@bar.com");
 
-		driver.findElement(By.cssSelector("button")).click();
+		getDriver().findElement(By.cssSelector("button")).click();
 
-		Assertions.assertThat(driver.findElement(By.cssSelector(".alert-success")).isDisplayed()).isEqualTo(true);
+		Assertions.assertThat(getDriver().findElement(By.cssSelector(".alert-success")).isDisplayed()).isEqualTo(true);
 	}
 
 	/**
 	 * Doesn't work, as the element is already visible in the DOM (only not visible)
 	 */
-	@Test(invocationCount = 10)
+	@Test(invocationCount = 3)
 	public void waitForSuccessMessage_withImplicitlyWait() {
-		driver.get("http://www.selenium-in-action.io/examples/FormWithDelay.html");
-		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		getDriver().get("http://www.seleniuminaction.com/examples/FormWithDelay.html");
+		getDriver().manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 
-		driver.findElement(By.cssSelector("input#firstName")).sendKeys("John");
-		driver.findElement(By.cssSelector("input#lastName")).sendKeys("Doe");
-		driver.findElement(By.cssSelector("input#email")).sendKeys("foo@bar.com");
+		getDriver().findElement(By.cssSelector("input#firstName")).sendKeys("John");
+		getDriver().findElement(By.cssSelector("input#lastName")).sendKeys("Doe");
+		getDriver().findElement(By.cssSelector("input#email")).sendKeys("foo@bar.com");
 
-		driver.findElement(By.cssSelector("button")).click();
+		getDriver().findElement(By.cssSelector("button")).click();
 
-		Assertions.assertThat(driver.findElement(By.cssSelector(".alert-success")).isDisplayed()).isEqualTo(true);
+		Assertions.assertThat(getDriver().findElement(By.cssSelector(".alert-success")).isDisplayed()).isEqualTo(true);
 	}
 
 	/**
@@ -49,39 +49,39 @@ public class DelayedForm extends AbstractTestBase {
 	 * 
 	 * @throws InterruptedException
 	 */
-	@Test(invocationCount = 10)
+	@Test
 	public void waitForSuccessMessage_withSleep() throws InterruptedException {
-		driver.get("http://www.selenium-in-action.io/examples/FormWithDelay.html");
+		getDriver().get("http://www.seleniuminaction.com/examples/FormWithDelay.html");
 
-		driver.findElement(By.cssSelector("input#firstName")).sendKeys("John");
-		driver.findElement(By.cssSelector("input#lastName")).sendKeys("Doe");
-		driver.findElement(By.cssSelector("input#email")).sendKeys("foo@bar.com");
+		getDriver().findElement(By.cssSelector("input#firstName")).sendKeys("John");
+		getDriver().findElement(By.cssSelector("input#lastName")).sendKeys("Doe");
+		getDriver().findElement(By.cssSelector("input#email")).sendKeys("foo@bar.com");
 
-		driver.findElement(By.cssSelector("button")).click();
+		getDriver().findElement(By.cssSelector("button")).click();
 
 		Thread.sleep(5000);
 
-		Assertions.assertThat(driver.findElement(By.cssSelector(".alert-success")).isDisplayed()).isEqualTo(true);
+		Assertions.assertThat(getDriver().findElement(By.cssSelector(".alert-success")).isDisplayed()).isEqualTo(true);
 	}
 
 	/**
-	 * Works, as long as the timeOutInSeconds isn't exceeds <br/>
+	 * Works, as long as the timeOutInSeconds didn't exceeds <br/>
 	 * In this case we just wait as long as needed.
 	 */
-	@Test(invocationCount = 10)
+	@Test(invocationCount = 3)
 	public void waitForSuccessMessage_withWait() {
-		driver.get("http://www.selenium-in-action.io/examples/FormWithDelay.html");
+		getDriver().get("http://www.seleniuminaction.com/examples/FormWithDelay.html");
 
-		driver.findElement(By.cssSelector("input#firstName")).sendKeys("John");
-		driver.findElement(By.cssSelector("input#lastName")).sendKeys("Doe");
-		driver.findElement(By.cssSelector("input#email")).sendKeys("foo@bar.com");
+		getDriver().findElement(By.cssSelector("input#firstName")).sendKeys("John");
+		getDriver().findElement(By.cssSelector("input#lastName")).sendKeys("Doe");
+		getDriver().findElement(By.cssSelector("input#email")).sendKeys("foo@bar.com");
 
-		driver.findElement(By.cssSelector("button")).click();
+		getDriver().findElement(By.cssSelector("button")).click();
 
-		final WebDriverWait wait = new WebDriverWait(driver, 40);
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector(".alert-success"))));
+		final WebDriverWait wait = new WebDriverWait(getDriver(), 40);
+		wait.until(ExpectedConditions.visibilityOf(getDriver().findElement(By.cssSelector(".alert-success"))));
 
-		Assertions.assertThat(driver.findElement(By.cssSelector(".alert-success")).isDisplayed()).isEqualTo(true);
+		Assertions.assertThat(getDriver().findElement(By.cssSelector(".alert-success")).isDisplayed()).isEqualTo(true);
 	}
 
 }

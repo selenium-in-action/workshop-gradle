@@ -13,29 +13,29 @@ import org.testng.annotations.Test;
 public class Exercise1a extends AbstractTestBase {
 
 	public void loginSuccess() {
-		driver.get("http://demo.selenium-in-action.io/index.php");
+		getDriver().get("http://demo.seleniuminaction.com/index.php");
 
-		driver.findElement(By.cssSelector("a.login")).click();
+		getDriver().findElement(By.cssSelector("a.login")).click();
 
-		driver.findElement(By.cssSelector("input#email")).sendKeys("tester@test.com");
-		driver.findElement(By.cssSelector("input#passwd")).sendKeys("1qazxsw2");
-		driver.findElement(By.cssSelector("button#SubmitLogin")).click();
+		getDriver().findElement(By.cssSelector("input#email")).sendKeys("tester@test.com");
+		getDriver().findElement(By.cssSelector("input#passwd")).sendKeys("1qazxsw2");
+		getDriver().findElement(By.cssSelector("button#SubmitLogin")).click();
 
-		Assertions.assertThat(driver.findElement(By.cssSelector("div#center_column > p")).getText())
+		Assertions.assertThat(getDriver().findElement(By.cssSelector("div#center_column > p")).getText())
 				.isEqualTo("Welcome to your account. Here you can manage all of your personal information and orders.");
 	}
 
 	public void loginAccountDoesNotExist() {
 
-		driver.get("http://demo.selenium-in-action.io/index.php");
+		getDriver().get("http://demo.seleniuminaction.com/index.php");
 
-		driver.findElement(By.cssSelector("a.login")).click();
+		getDriver().findElement(By.cssSelector("a.login")).click();
 
-		driver.findElement(By.cssSelector("input#email")).sendKeys("1234@test.com");
-		driver.findElement(By.cssSelector("input#passwd")).sendKeys("1qazxsw2");
-		driver.findElement(By.cssSelector("button#SubmitLogin")).click();
+		getDriver().findElement(By.cssSelector("input#email")).sendKeys("1234@test.com");
+		getDriver().findElement(By.cssSelector("input#passwd")).sendKeys("1qazxsw2");
+		getDriver().findElement(By.cssSelector("button#SubmitLogin")).click();
 
-		Assertions.assertThat(driver.findElement(By.cssSelector(".alert-danger")).isDisplayed()).isEqualTo(true);
+		Assertions.assertThat(getDriver().findElement(By.cssSelector(".alert-danger")).isDisplayed()).isEqualTo(true);
 	}
 
 }

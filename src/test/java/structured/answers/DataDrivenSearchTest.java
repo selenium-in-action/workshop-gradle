@@ -1,11 +1,10 @@
 package structured.answers;
 
+import answers.pages.HomePage;
+import answers.pages.SearchResultsPage;
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import answers.pages.HomePage;
-import answers.pages.SearchResultsPage;
 
 @Test
 public class DataDrivenSearchTest extends AbstractTestBase {
@@ -22,7 +21,7 @@ public class DataDrivenSearchTest extends AbstractTestBase {
 
 	@Test(dataProvider = "data")
 	public void searchSuccess(final String query) {
-		final SearchResultsPage searchResultsPage = new HomePage(driver).get() //
+		final SearchResultsPage searchResultsPage = new HomePage(getDriver()).get() //
 				.searchFor(query);
 
 		Assertions.assertThat(searchResultsPage.getResults().size()).isGreaterThan(0);

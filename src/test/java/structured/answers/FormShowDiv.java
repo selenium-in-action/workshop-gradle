@@ -8,17 +8,17 @@ import org.testng.annotations.Test;
 public class FormShowDiv extends AbstractTestBase {
 
 	public void waitForSuccessMessage() {
-		driver.get("http://www.selenium-in-action.io/examples/FormShowDiv.html");
+		getDriver().get("http://www.seleniuminaction.com/examples/FormShowDiv.html");
 
-		Assertions.assertThat(driver.findElement(By.cssSelector(".alert-success")).isDisplayed()).isEqualTo(false);
+		Assertions.assertThat(getDriver().findElement(By.cssSelector(".alert-success")).isDisplayed()).isEqualTo(false);
 
-		driver.findElement(By.cssSelector("input#firstName")).sendKeys("John");
-		driver.findElement(By.cssSelector("input#lastName")).sendKeys("Doe");
-		driver.findElement(By.cssSelector("input#email")).sendKeys("foo@bar.com");
+		getDriver().findElement(By.cssSelector("input#firstName")).sendKeys("John");
+		getDriver().findElement(By.cssSelector("input#lastName")).sendKeys("Doe");
+		getDriver().findElement(By.cssSelector("input#email")).sendKeys("foo@bar.com");
 
-		driver.findElement(By.cssSelector("button")).click();
+		getDriver().findElement(By.cssSelector("button")).click();
 
-		Assertions.assertThat(driver.findElement(By.cssSelector(".alert-success")).isDisplayed()).isEqualTo(true);
+		Assertions.assertThat(getDriver().findElement(By.cssSelector(".alert-success")).isDisplayed()).isEqualTo(true);
 	}
 
 }

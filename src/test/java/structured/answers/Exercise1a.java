@@ -1,11 +1,10 @@
 package structured.answers;
 
-import org.assertj.core.api.Assertions;
-import org.testng.annotations.Test;
-
 import answers.pages.AuthenticationPage;
 import answers.pages.HomePage;
 import answers.pages.MyAccountPage;
+import org.assertj.core.api.Assertions;
+import org.testng.annotations.Test;
 
 /**
  * The goal of this exercises is to fix the broken tests.
@@ -16,7 +15,7 @@ import answers.pages.MyAccountPage;
 public class Exercise1a extends AbstractTestBase {
 
 	public void loginSuccess() {
-		final MyAccountPage accountPage = new HomePage(driver) //
+		final MyAccountPage accountPage = new HomePage(getDriver()) //
 				.get() //
 				.clickOnLogin() //
 				.loginWith("tester@test.com", "1qazxsw2");
@@ -26,7 +25,7 @@ public class Exercise1a extends AbstractTestBase {
 	}
 
 	public void loginAccountDoesNotExist() {
-		final AuthenticationPage authenticationPage = new HomePage(this.driver) //
+		final AuthenticationPage authenticationPage = new HomePage(getDriver()) //
 				.get() //
 				.clickOnLogin();
 		authenticationPage.loginWith("1234@test.com", "1qazxsw2");

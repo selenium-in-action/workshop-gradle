@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 public class Exercise1a extends AbstractTestBase {
 
 	public void loginSuccess() {
-		driver.get("http://demo.selenium-in-action.io/index.php");
+		driver.get("http://demo.seleniuminaction.com/index.php");
 
 		driver.findElement(By.cssSelector("a.login")).click();
 

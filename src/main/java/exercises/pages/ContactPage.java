@@ -1,14 +1,13 @@
 package exercises.pages;
 
-import java.util.List;
-
+import exercises.types.ContactSubject;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
-import exercises.types.ContactSubject;
+import java.util.List;
 
 public class ContactPage extends AbstractPage<ContactPage> {
 

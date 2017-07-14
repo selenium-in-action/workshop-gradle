@@ -1,11 +1,10 @@
 package answers.exercise5.components;
 
+import answers.exercise5.pages.SearchResultsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import answers.exercise5.pages.SearchResultsPage;
 
 public class SearchComponent {
 	@FindBy(css = "input#search_query_top")

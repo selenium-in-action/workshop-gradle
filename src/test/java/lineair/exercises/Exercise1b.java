@@ -1,10 +1,10 @@
 package lineair.exercises;
 
-import java.util.Random;
-
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+
+import java.util.Random;
 
 /**
  * The goal of this exercises is to register a new account

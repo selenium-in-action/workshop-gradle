@@ -1,12 +1,12 @@
 package answers.pages;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ForgotPasswordPage extends AbstractPage<ForgotPasswordPage> {
 
@@ -25,7 +25,7 @@ public class ForgotPasswordPage extends AbstractPage<ForgotPasswordPage> {
 
 	@Override
 	protected void load() {
-		driver.get("http://demo.selenium-in-action.io/index.php?controller=password");
+		driver.get("http://demo.seleniuminaction.com/index.php?controller=password");
 	}
 
 	@Override

@@ -1,9 +1,8 @@
 package exercises.exercise5.pages;
 
+import answers.exercise5.components.SearchComponent;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-
-import answers.exercise5.components.SearchComponent;
 
 public class HomePage extends AbstractPage<HomePage> {
 
@@ -17,7 +16,7 @@ public class HomePage extends AbstractPage<HomePage> {
 	@Override
 	protected void load() {
 		// Open the page
-		driver.get("http://demo.selenium-in-action.io/index.php");
+		driver.get("http://demo.seleniuminaction.com/index.php");
 	}
 
 	@Override

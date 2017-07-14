@@ -1,12 +1,11 @@
 package structured.answers;
 
-import org.assertj.core.api.Assertions;
-import org.testng.annotations.Test;
-
 import answers.pages.AuthenticationPage;
 import answers.pages.HomePage;
 import answers.pages.MyAccountPage;
 import answers.types.Account;
+import org.assertj.core.api.Assertions;
+import org.testng.annotations.Test;
 
 /**
  * The goal of this exercise is to use an existing data object. (POJO)
@@ -21,7 +20,7 @@ public class Exercise6 extends AbstractTestBase {
 		account.setEmail("tester@test.com");
 		account.setPassword("1qazxsw2");
 
-		final MyAccountPage accountPage = new HomePage(driver) //
+		final MyAccountPage accountPage = new HomePage(getDriver()) //
 				.get() //
 				.clickOnLogin() //
 				.loginWith(account.getEmail(), account.getPassword());
@@ -33,7 +32,7 @@ public class Exercise6 extends AbstractTestBase {
 	public void loginAccountDoesNotExist() {
 		final Account account = new Account("1234@test.com", "1qazxsw2");
 
-		final AuthenticationPage authenticationPage = new HomePage(this.driver) //
+		final AuthenticationPage authenticationPage = new HomePage(this.getDriver()) //
 				.get() //
 				.clickOnLogin();
 		authenticationPage.loginWith(account.getEmail(), account.getPassword());

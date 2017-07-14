@@ -26,7 +26,7 @@ public class HomePage extends AbstractPage<HomePage> {
 	@Override
 	protected void load() {
 		// Open the page
-		driver.get("http://demo.selenium-in-action.io/index.php");
+		driver.get("http://demo.seleniuminaction.com/index.php");
 	}
 
 	@Override

@@ -1,5 +1,16 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'com.github.ben-manes.versions'
+
+buildscript {
+	repositories {
+		jcenter()
+	}
+
+	dependencies {
+		classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
+	}
+}
 
 sourceCompatibility = 1.8
 version = '1.0'
@@ -15,17 +26,17 @@ repositories {
 }
 
 dependencies {
-	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.6'
 	compile group: 'com.paulhammant', name: 'ngwebdriver', version: '1.0'
-	compile 'com.google.guava:guava:19.0'
+	compile 'com.google.guava:guava:22.0'
     compile 'org.testng:testng:6.11'
-	compile 'org.seleniumhq.selenium:selenium-java:3.3.1'
-	compile 'org.assertj:assertj-core:2.1.0'
-	compile 'io.github.bonigarcia:webdrivermanager:1.6.2'
+	compile 'org.seleniumhq.selenium:selenium-java:3.4.0'
+	compile 'org.assertj:assertj-core:3.8.0'
+	compile 'io.github.bonigarcia:webdrivermanager:1.7.1'
 	compile('org.uncommons:reportng:1.1.4') {
 		exclude module: 'testng' //by artifact name
 	}
-	compile 'com.google.inject:guice:2.0-no_aop'
+	compile 'com.google.inject:guice:4.0-beta5'
 }
 
 test {
@@ -37,7 +48,7 @@ test {
 	useTestNG {
 		useDefaultListeners = false
 		includeGroups project.hasProperty('testGroups') ? testGroups : ''
-		include 'lineair/answers/**'
+		include project.hasProperty('training') ? training + '/answers/**' : 'lineair/answers/**'
 		parallel = 'classes'
 		threadCount = 4
 	}

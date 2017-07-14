@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class Exercise5 extends AbstractTestBase {
 
 	public void completeContactForm_confirmationShown() {
-		driver.get("http://demo.selenium-in-action.io/index.php?controller=contact");
+		driver.get("http://demo.seleniuminaction.com/index.php?controller=contact");
 
 	}
 

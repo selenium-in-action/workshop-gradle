@@ -1,14 +1,13 @@
 package structured.answers;
 
-import java.util.concurrent.TimeUnit;
-
+import com.google.common.base.Function;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.annotations.Test;
 
-import com.google.common.base.Function;
+import java.util.concurrent.TimeUnit;
 
 /**
  * The goal of this exercises is to fix the broken tests.
@@ -19,9 +18,9 @@ public class Exercise1c extends AbstractTestBase {
 
 	public void waitForCountDown() {
 		// Open website
-		driver.get("https://stuntcoders.com/snippets/javascript-countdown/");
+		getDriver().get("https://stuntcoders.com/snippets/javascript-countdown/");
 
-		WebElement countdown = driver.findElement(By.id("javascript_countdown_time"));
+		WebElement countdown = getDriver().findElement(By.id("javascript_countdown_time"));
 
 		System.out.println(countdown.getText());
 

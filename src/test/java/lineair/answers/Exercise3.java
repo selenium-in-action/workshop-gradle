@@ -12,14 +12,14 @@ import org.testng.annotations.Test;
 public class Exercise3 extends AbstractTestBase {
 
 	public void navigateToContactPage_contactPageShown() {
-		driver.get("http://demo.selenium-in-action.io/index.php");
+		getDriver().get("http://demo.seleniuminaction.com/index.php");
 
-		driver.findElement(By.cssSelector("#contact-link > a")).click();
+		getDriver().findElement(By.cssSelector("#contact-link > a")).click();
 
-		Assertions.assertThat(driver.findElement(By.cssSelector("h1.page-heading")).getText()).isEqualTo("CUSTOMER SERVICE - CONTACT US");
+		Assertions.assertThat(getDriver().findElement(By.cssSelector("h1.page-heading")).getText()).isEqualTo("CUSTOMER SERVICE - CONTACT US");
 
 		// or
 
-		Assertions.assertThat(driver.getTitle()).isEqualTo("Contact us - FashionShop");
+		Assertions.assertThat(getDriver().getTitle()).isEqualTo("Contact us - FashionShop");
 	}
 }

@@ -1,14 +1,13 @@
 package answers.pages;
 
-import java.util.List;
-
+import answers.types.ContactSubject;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
-import answers.types.ContactSubject;
+import java.util.List;
 
 public class ContactPage extends AbstractPage<ContactPage> {
 
@@ -51,7 +50,7 @@ public class ContactPage extends AbstractPage<ContactPage> {
 
 	@Override
 	protected void load() {
-		driver.get("http://demo.selenium-in-action.io/index.php?controller=contact");
+		driver.get("http://demo.seleniuminaction.com/index.php?controller=contact");
 	}
 
 	public String getPageTitle() {

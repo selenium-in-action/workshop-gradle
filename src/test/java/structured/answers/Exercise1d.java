@@ -1,13 +1,12 @@
 package structured.answers;
 
-import java.util.concurrent.TimeUnit;
-
+import com.paulhammant.ngwebdriver.ByAngular;
+import com.paulhammant.ngwebdriver.NgWebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
-import com.paulhammant.ngwebdriver.ByAngular;
-import com.paulhammant.ngwebdriver.NgWebDriver;
+import java.util.concurrent.TimeUnit;
 
 /**
  * The goal of this exercise is to replace regular identifiers by angular identifiers
@@ -17,13 +16,13 @@ import com.paulhammant.ngwebdriver.NgWebDriver;
 public class Exercise1d extends AbstractTestBase {
 
 	public void addToDo() {
-		driver.get("http://todomvc.com/examples/angularjs/#/");
-		driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
-		new NgWebDriver((JavascriptExecutor) driver).waitForAngularRequestsToFinish();
+		getDriver().get("http://todomvc.com/examples/angularjs/#/");
+		getDriver().manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
+		new NgWebDriver((JavascriptExecutor) getDriver()).waitForAngularRequestsToFinish();
 
-		driver.findElement(ByAngular.model("newTodo")).sendKeys("new TODO");
+		getDriver().findElement(ByAngular.model("newTodo")).sendKeys("new TODO");
 
-		driver.findElement(By.cssSelector("#todo-form")).submit();
+		getDriver().findElement(By.cssSelector("#todo-form")).submit();
 
 	}
 

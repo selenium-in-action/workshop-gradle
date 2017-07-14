@@ -1,5 +1,6 @@
 package answers.pages;
 
+import answers.types.Title;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,8 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
-import answers.types.Title;
 
 public class AccountCreationPage extends AbstractPage<AccountCreationPage> {
 
@@ -48,7 +47,7 @@ public class AccountCreationPage extends AbstractPage<AccountCreationPage> {
 
 	@Override
 	protected void load() {
-		driver.get("http://demo.selenium-in-action.io/login#account-creation");
+		driver.get("http://demo.seleniuminaction.com/login#account-creation");
 	}
 
 	@Override

@@ -1,17 +1,16 @@
 package structured.exercises;
 
+import exercises.pages.AuthenticationPage;
+import exercises.pages.HomePage;
+import exercises.pages.MyAccountPage;
+import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-
-import exercises.pages.AuthenticationPage;
-import exercises.pages.HomePage;
-import exercises.pages.MyAccountPage;
-import util.DriverPath;
-import util.FileUtil;
 
 /**
  * The goal of this exercise is to use an existing data object. (POJO) Use the Account object
@@ -22,13 +21,15 @@ public class Exercise6 {
 
 	protected WebDriver driver;
 
+	@BeforeSuite
+	public void setupDriverManager() {
+		ChromeDriverManager.getInstance().setup();
+	}
+
 	@BeforeMethod(alwaysRun = true)
 	public void setUp() {
-		// Create a new instance of the Firefox driver
-		System.setProperty("webdriver.chrome.driver", FileUtil.findFileOnPath(DriverPath.getChromeDriver())); // geckodriver
-		// System.setProperty("webdriver.gecko.driver", findFileOnPath("drivers/mac/geckodriver")); // geckodriver
+		// Create a new instance of the Chrome driver
 		driver = new ChromeDriver();
-
 	}
 
 	@AfterMethod(alwaysRun = true)
