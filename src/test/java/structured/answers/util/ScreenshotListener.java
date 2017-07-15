@@ -19,7 +19,6 @@ import java.util.Calendar;
 
 public class ScreenshotListener extends TestListenerAdapter {
 
-
     /**
      * Screenshot class that is called by listener to catch screenshot when test fails.<br>
      * <br>
