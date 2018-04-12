@@ -3,11 +3,11 @@ package answers.pages;
 import answers.types.SearchResult;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,7 +33,7 @@ public class SearchResultsPage extends AbstractPage<SearchResultsPage> {
 
 	@Override
 	protected void isLoaded() throws Error {
-		Assert.assertTrue(!driver.findElements(By.cssSelector("body#search")).isEmpty());
+		Assertions.assertThat(driver.findElements(By.cssSelector("body#search"))).isNotEmpty();
 	}
 
 	public List<String> getProductNames() {

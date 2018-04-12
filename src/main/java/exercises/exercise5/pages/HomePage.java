@@ -1,8 +1,8 @@
 package exercises.exercise5.pages;
 
 import answers.exercise5.components.SearchComponent;
+import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 public class HomePage extends AbstractPage<HomePage> {
 
@@ -22,7 +22,7 @@ public class HomePage extends AbstractPage<HomePage> {
 	@Override
 	protected void isLoaded() throws Error {
 		// verify if the correct page is open
-		Assert.assertTrue("FashionShop".equals(driver.getTitle()));
+		Assertions.assertThat("FashionShop").isEqualTo(driver.getTitle());
 	}
 
 	public SearchComponent searchComponent() {

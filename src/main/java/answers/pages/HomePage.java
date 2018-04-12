@@ -1,9 +1,9 @@
 package answers.pages;
 
+import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 
 public class HomePage extends AbstractPage<HomePage> {
 
@@ -32,7 +32,7 @@ public class HomePage extends AbstractPage<HomePage> {
 	@Override
 	protected void isLoaded() throws Error {
 		// verify if the correct page is open
-		Assert.assertTrue("FashionShop".equals(driver.getTitle()));
+		Assertions.assertThat("FashionShop").isEqualTo(driver.getTitle());
 	}
 
 	public AuthenticationPage clickOnLogin() {

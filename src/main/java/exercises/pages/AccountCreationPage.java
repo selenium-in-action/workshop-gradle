@@ -1,13 +1,13 @@
 package exercises.pages;
 
 import exercises.types.Title;
+import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 public class AccountCreationPage extends AbstractPage<AccountCreationPage> {
 
@@ -54,7 +54,7 @@ public class AccountCreationPage extends AbstractPage<AccountCreationPage> {
 	protected void isLoaded() throws Error {
 		// verify if the correct page is open
 		final String title = driver.getTitle();
-		Assert.assertTrue(title.startsWith("Login"));
+		Assertions.assertThat(title).startsWith("Login");
 	}
 
 	public AccountCreationPage setTitle(Title mr) {

@@ -1,9 +1,9 @@
 package answers.pages;
 
+import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 
 public class AuthenticationPage extends AbstractPage<AuthenticationPage> {
 
@@ -41,10 +41,11 @@ public class AuthenticationPage extends AbstractPage<AuthenticationPage> {
 	@Override
 	protected void isLoaded() throws Error {
 		// verify if the correct page is open
-		Assert.assertTrue(driver.getTitle().startsWith("Login"));
+		Assertions.assertThat(driver.getTitle()).startsWith("Login");
 	}
 
-	public MyAccountPage loginWith(final String email, final String password) {
+	public MyAccountPage loginWith
+			(final String email, final String password) {
 		emailTextfield.sendKeys(email);
 		passwordTextfield.sendKeys(password);
 		loginButton.click();
